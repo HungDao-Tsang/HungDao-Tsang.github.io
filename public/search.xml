@@ -1,0 +1,665 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Github+Next 博客搭建</title>
+    <url>/article1/</url>
+    <content><![CDATA[<img src="https://s3.bmp.ovh/imgs/2023/02/02/2592b7a3736c153d.png" alt="" style="width:50%" />
+
+<blockquote>
+<p>博客搭建初期的运行环境配置，Hexo框架的安装、更换Next主题、部署到GitHub仓库，以及GitHub的二级域名访问博客</p>
+</blockquote>
+<span id="more"></span>
+
+<blockquote>
+<h2 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h2></blockquote>
+<ul>
+<li><p>Hexo</p>
+<p><code>Hexo</code>是一个快速、简洁、高效、开源、有多种主题的博客框架，<code>Hexo</code>使用<a href="https://markdown.com.cn/">Markdown</a>或者其他渲染引擎解析文章，在几秒钟内即可生成与主题一样靓丽的静态网页</p>
+</li>
+<li><p>Next</p>
+<p><code>Next</code>主题是<code>Hexo</code>的开源主题，目前也是使用最多的主题之一，其风格最为极简，主题内有四种布局可选，本博客用的就是Next主题的<code>Gemini</code>布局</p>
+</li>
+</ul>
+<blockquote>
+<h2 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境"></a>搭建环境</h2></blockquote>
+<ul>
+<li><p>Windows 11</p>
+</li>
+<li><p><a href="http://nodejs.cn/">Node.js</a></p>
+</li>
+<li><p><a href="https://git-scm.com/">Git</a></p>
+</li>
+</ul>
+<blockquote>
+<h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3></blockquote>
+<ul>
+<li><a href="http://nodejs.cn/">Node.js</a>安装方法网上有很多而且很详细，本文不记录，大概步骤官网下载最新版，一直下一步安装，不更改任何设置与安装位置，<code>Hexo</code>运行必须用到<code>Node.js</code>环境</li>
+</ul>
+<blockquote>
+<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3></blockquote>
+<ul>
+<li><a href="https://git-scm.com/">Git</a>安装方法网上也很多很详细，本文不记录，官网下载很慢可能还访问不了，推荐镜像源下载，安装方法也是下载最新版，一直下一步安装，不更改任何设置和安装位置，<code>Git</code>是一个分布式部署的工具，后面<code>Hexo</code>安装、插件安装、<code>Next</code>主题下载、发布文章、上传<code>GitHub</code>等等都需Git</li>
+</ul>
+<blockquote>
+<h3 id="搭建优化"><a href="#搭建优化" class="headerlink" title="搭建优化"></a>搭建优化</h3></blockquote>
+<blockquote>
+<h4 id="编辑器安装"><a href="#编辑器安装" class="headerlink" title="编辑器安装"></a>编辑器安装</h4></blockquote>
+<ul>
+<li><a href="https://code.visualstudio.com/download">Visual Studio Code</a></li>
+<li><code>Visual Studio Code</code>编辑器功能强大，体积小，拥有各种编程语言插件，编辑器需要经常用到，安装方法直接下载安装</li>
+</ul>
+<blockquote>
+<h4 id="安装淘宝镜像源"><a href="#安装淘宝镜像源" class="headerlink" title="安装淘宝镜像源"></a>安装淘宝镜像源</h4></blockquote>
+<ul>
+<li><code>CMD</code>执行以下命令</li>
+</ul>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">npm install -g cnpm --registry=https:<span class="regexp">//</span>registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>hexo</code>博客框架，Next主题，各种插件大部分都发布在<code>GitHub</code>，访问下载特别慢还可能失败，所以更换国内的淘宝镜像源下载，更改之后需要注意⬇️</li>
+</ul>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">原：nmp <span class="keyword">install</span> 更改为 新：cnmp <span class="keyword">install</span> <span class="comment">#就是安装命令的前面加一个“C”</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h2 id="Git绑定"><a href="#Git绑定" class="headerlink" title="Git绑定"></a>Git绑定</h2></blockquote>
+<ul>
+<li><a href="https://github.com/">GitHub</a></li>
+</ul>
+<blockquote>
+<h3 id="GitHub注册"><a href="#GitHub注册" class="headerlink" title="GitHub注册"></a>GitHub注册</h3></blockquote>
+<ul>
+<li><code>GitHub</code>账号注册非常简单，如果访问<code>GitHub</code>失败，<a href="https://dao943.top/">Hong Dao主页</a>的索引网络工具里下载GitHub访问工具</li>
+</ul>
+<blockquote>
+<h3 id="生成公钥"><a href="#生成公钥" class="headerlink" title="生成公钥"></a>生成公钥</h3></blockquote>
+<ul>
+<li><code>CMD</code>执行以下命令，生成<code>ssh key</code></li>
+</ul>
+<figure class="highlight excel"><table><tr><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> rsa -C <span class="string">&quot;你GitHub绑定邮箱.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>密钥生成的路径为</li>
+</ul>
+<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">C:</span>\Users\你的用户名\.ssh\id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s3.bmp.ovh/imgs/2022/05/21/4386ae20f329e3bb.png"></p>
+<blockquote>
+<h3 id="GitHub填写密钥"><a href="#GitHub填写密钥" class="headerlink" title="GitHub填写密钥"></a>GitHub填写密钥</h3></blockquote>
+<ul>
+<li><p>记事本或者编辑器打开生成的公钥，复制里面所有内容</p>
+</li>
+<li><p>登录<code>GitHub</code>，点击头像➡️<code>Settings</code>➡️<code>SSH and GPG keys</code>➡️<code>New SSH key</code>➡️把公钥内容粘贴进去➡️点击<code>Add SSH Key</code></p>
+</li>
+</ul>
+<p><img src="https://s3.bmp.ovh/imgs/2022/05/21/0487364fbb29f8a3.png"></p>
+<ul>
+<li><code>CMD</code>执行以下命令，查看是否绑定</li>
+</ul>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">ssh</span> -T git<span class="variable">@github</span>.com</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>若回复输出以信息下即为绑定成功</li>
+</ul>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">Hi 你GitHub名字! You<span class="symbol">&#x27;ve</span> successfully authenticated, but GitHub does <span class="keyword">not</span> provide shell <span class="keyword">access</span>.</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h3 id="创建博客仓库"><a href="#创建博客仓库" class="headerlink" title="创建博客仓库"></a>创建博客仓库</h3></blockquote>
+<ul>
+<li>登录<code>GitHub</code>➡️首页点击<code>cerate a new repository </code>创建仓库➡️设置<code>Repository name</code>仓库名称</li>
+<li>仓库名称格式：<code>GitHub</code>用户名<code>.github.io</code></li>
+<li>例如：<code>dao943.github.io</code></li>
+<li>必须选择<code>Public</code>开源➡️点击<code>Creating repository</code>完成创建</li>
+</ul>
+<p><img src="https://s3.bmp.ovh/imgs/2022/05/21/242f9d24caae82e3.png"></p>
+<blockquote>
+<h3 id="配置Git"><a href="#配置Git" class="headerlink" title="配置Git"></a>配置Git</h3></blockquote>
+<ul>
+<li>右键<code>Git Bash Here</code>打开<code>Git</code>依次执行以下命令</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> user<span class="selector-class">.name</span> <span class="string">&quot;你GitHub用户名&quot;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">git config <span class="attr">--global</span> user<span class="selector-class">.email</span> <span class="string">&quot;你GitHub绑定邮箱.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h2 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h2></blockquote>
+<ul>
+<li><a href="https://hexo.io/zh-cn/docs/">文档 | Hexo</a></li>
+</ul>
+<blockquote>
+<h3 id="全局安装"><a href="#全局安装" class="headerlink" title="全局安装"></a>全局安装</h3></blockquote>
+<ul>
+<li>管理员身份运行<code>CMD</code>，执行<code>Hexo</code>全局安装命令</li>
+</ul>
+<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-<span class="keyword">cli</span> -g</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>继续执行以下命令，查看是否安装成功，出现版本号即为安装成功</li>
+</ul>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">hexo -v</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h3 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a>初始化博客</h3></blockquote>
+<ul>
+<li><p>创建存放博客文件夹➡️打开文件夹➡️右键<code>Git Bash Here</code>打开<code>Git</code></p>
+</li>
+<li><p>执行初始化命令（<code>Git</code>不能使用快捷键复制与粘贴，具体百度）</p>
+</li>
+</ul>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">hexo <span class="keyword">init</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>如果出现报错，前面步骤没有任何改动或者做错，那大概率是网络问题，解决办法多试几次或者科学上网，如还是不行请百度</p>
+</li>
+<li><p>回复输出以下信息为初始化成功</p>
+</li>
+</ul>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">INFO</span> <span class="keyword">Start</span> blogging <span class="keyword">with</span> Hexo！</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h3 id="配置Hexo"><a href="#配置Hexo" class="headerlink" title="配置Hexo"></a>配置Hexo</h3></blockquote>
+<ul>
+<li>打开博客文件夹下的<code>config.yml</code>的配置文件，找到<code>deploy</code>，更改如下</li>
+</ul>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">deploy:</span></span><br><span class="line"><span class="symbol">  type:</span> git</span><br><span class="line"><span class="symbol">  repo:</span> git@github.com:你GitHub用户名/你GitHub用户名.github.io.git <span class="meta">#部署的GitHub仓库地址</span></span><br><span class="line"><span class="symbol">  branch:</span> main</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h3 id="安装部署插件"><a href="#安装部署插件" class="headerlink" title="安装部署插件"></a>安装部署插件</h3></blockquote>
+<ul>
+<li>博客文件夹下，右键打开<code>Git</code>执行以下命令</li>
+</ul>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-deployer-git <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h3 id="博客本地预览"><a href="#博客本地预览" class="headerlink" title="博客本地预览"></a>博客本地预览</h3></blockquote>
+<ul>
+<li>博客文件夹内右键打开<code>Git</code>，依次执行以下命令</li>
+</ul>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">hexo g</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">hexo s</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>浏览器网址输入<code>http://localhost:4000/</code>，即可本地预览搭建的博客</li>
+</ul>
+<blockquote>
+<h2 id="Next安装"><a href="#Next安装" class="headerlink" title="Next安装"></a>Next安装</h2></blockquote>
+<ul>
+<li>博客文件夹内右键打开<code>Git</code>，执行以下命令</li>
+</ul>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">git clone --branch v8.<span class="number">11.1</span> https:<span class="regexp">//gi</span>thub.com<span class="regexp">/next-theme/</span>hexo-theme-<span class="keyword">next</span> themes/<span class="keyword">next</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>完成后打开博客配置文件，更新如下</li>
+</ul>
+<figure class="highlight autoit"><table><tr><td class="code"><pre><span class="line">theme: <span class="keyword">next</span> <span class="meta">#主题名称</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>可以用预览命令查看效果</li>
+</ul>
+<h2 id="部署仓库"><a href="#部署仓库" class="headerlink" title="部署仓库"></a>部署仓库</h2><ul>
+<li>博客文件夹内右键打开<code>Git</code>，依次执行以下命令</li>
+</ul>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">hexo clean</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">hexo g</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">hexo d</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>稍等一会，就可以用<code>GitHub</code>二级域名访问了</li>
+<li>例如：<code>http://</code>你的<code>GitHub</code>用户名<code>.github.io</code></li>
+</ul>
+<blockquote>
+<h2 id="学习知识"><a href="#学习知识" class="headerlink" title="学习知识"></a>学习知识</h2></blockquote>
+<blockquote>
+<h3 id="config-yml文件"><a href="#config-yml文件" class="headerlink" title="_config.yml文件"></a>_config.yml文件</h3></blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">博客目录的<code>_config.yml</code></th>
+<th align="center">主题目录的<code>_config.yml</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">主要配置博客的配置文件，通常叫站点配置</td>
+<td align="center">主要配置主题的配置文件，通常叫主题配置</td>
+</tr>
+</tbody></table>
+<blockquote>
+<h3 id="博客目录"><a href="#博客目录" class="headerlink" title="博客目录"></a>博客目录</h3></blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>node_modules</code></td>
+<td align="center">存储已安装的各类依赖包</td>
+</tr>
+<tr>
+<td align="center"><code>package.json</code></td>
+<td align="center">Hexo的版本以及相关依赖包的版本信息</td>
+</tr>
+<tr>
+<td align="center"><code>scaffold</code></td>
+<td align="center"><code>page</code>，<code>post</code>，<code>draft</code>三种模板</td>
+</tr>
+<tr>
+<td align="center"><code>themes</code></td>
+<td align="center">主题文件夹</td>
+</tr>
+<tr>
+<td align="center"><code>source</code></td>
+<td align="center">资源文件夹，图片、文章、页面等</td>
+</tr>
+<tr>
+<td align="center"><code>public</code></td>
+<td align="center">渲染好的<code>index.html</code>文件夹</td>
+</tr>
+<tr>
+<td align="center"><code>.deploy_git</code></td>
+<td align="center">提交到Github后生成</td>
+</tr>
+</tbody></table>
+<ul>
+<li>部署原理：<code>source</code>➡️<code>public</code> ➡️<code> .deploy_git</code></li>
+</ul>
+<blockquote>
+<h3 id="部署命令"><a href="#部署命令" class="headerlink" title="部署命令"></a>部署命令</h3></blockquote>
+<ul>
+<li>清理本地缓存</li>
+</ul>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">hexo clean</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>生成静态文件</li>
+</ul>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">hexo g</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>本地预览（部署时可以略过）</li>
+</ul>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">hexo s</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>上传远程源码仓库（报错说明要安装插件）</li>
+</ul>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">hexo d</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+        <tag>Next</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mitsubishi CNC 程序传输</title>
+    <url>/article4/</url>
+    <content><![CDATA[<img src="https://s3.bmp.ovh/imgs/2023/02/02/2e0eaebce5e3b7bc.jpg" alt="" style="width:35%" />
+
+<blockquote>
+<p>CNC数控机床，三菱系统程序传输功能的安装与使用，管理多台CNC设备之间的程序传输</p>
+</blockquote>
+<span id="more"></span>
+
+<blockquote>
+<h2 id="使用必读"><a href="#使用必读" class="headerlink" title="使用必读"></a>使用必读</h2></blockquote>
+<ul>
+<li><code>CNC</code>系统要求：<code>M70(V)/M700(V)</code>系列 <code>C70</code>系列<code>E70</code>系列<code>M80/M800</code>系列</li>
+<li>电脑系统要求：<code>Windows 7</code>系统以上的正版或完整版系统</li>
+</ul>
+<blockquote>
+<h2 id="硬件连接"><a href="#硬件连接" class="headerlink" title="硬件连接"></a>硬件连接</h2></blockquote>
+<blockquote>
+<h3 id="单对单连接"><a href="#单对单连接" class="headerlink" title="单对单连接"></a>单对单连接</h3></blockquote>
+<ul>
+<li>网线一端连接<code>CNC</code>机器，另一端连接电脑</li>
+</ul>
+<p><img src="https://s3.bmp.ovh/imgs/2022/09/13/a2f178b023393f08.png"></p>
+<blockquote>
+<h3 id="单对多连接"><a href="#单对多连接" class="headerlink" title="单对多连接"></a>单对多连接</h3></blockquote>
+<ul>
+<li>多台机器网线连接路由器或者交换机，路由器或者交换机再连接电脑</li>
+</ul>
+<p><img src="https://s3.bmp.ovh/imgs/2022/09/13/049438aa2215ab0e.png"></p>
+<blockquote>
+<h2 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h2></blockquote>
+<blockquote>
+<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h3></blockquote>
+<ul>
+<li><p><a href="https://www.mitsubishielectric-fa.cn/site/file-software-detail?id=33">官网</a></p>
+</li>
+<li><p><a href="https://wwc.lanzoum.com/iYnEd0bmjk4h">备份</a></p>
+</li>
+</ul>
+<blockquote>
+<h3 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h3></blockquote>
+<ul>
+<li>安装前检查：关闭所有安全杀毒软件，<code>Windows 10/11</code> 有自带安全杀毒软件也要关闭</li>
+<li>双击打开安装程序</li>
+</ul>
+<p><img src="https://s3.bmp.ovh/imgs/2022/09/16/5e2625b0c6a222f4.jpg"></p>
+<ul>
+<li>选择<code>Yes</code></li>
+</ul>
+<p><img src="https://s3.bmp.ovh/imgs/2022/09/16/43c3edb78698d1c0.jpg"></p>
+<ul>
+<li>填写相关信息，点击<code>Next</code></li>
+</ul>
+<p><img src="https://s3.bmp.ovh/imgs/2022/09/16/a3b338bda113dc30.jpg"></p>
+<ul>
+<li>更改安装路径，点击<code>Next</code></li>
+</ul>
+<p><img src="https://s3.bmp.ovh/imgs/2022/09/16/c9f1300e6f9ceef2.jpg"></p>
+<ul>
+<li>点击<code>Next</code></li>
+</ul>
+<p><img src="https://s3.bmp.ovh/imgs/2022/09/16/9e2e26e90cc8c5d8.jpg"></p>
+<ul>
+<li>双击打开<code>NC Explorer</code></li>
+</ul>
+<p><img src="https://s3.bmp.ovh/imgs/2022/09/16/15573a8d12a24c8c.jpg"></p>
+<ul>
+<li>任务栏找到如下</li>
+</ul>
+<p><img src="https://s3.bmp.ovh/imgs/2022/09/16/80a6724152eb15a6.jpg"></p>
+<ul>
+<li>右键选择<code>Settings</code></li>
+</ul>
+<p><img src="https://s3.bmp.ovh/imgs/2022/09/16/6b9a2d690ff12858.jpg"></p>
+<ul>
+<li>勾选<code>Compare(from PC to NC)</code>开启对比功能</li>
+</ul>
+<p><img src="https://s3.bmp.ovh/imgs/2022/09/16/e54a6c28777b7786.jpg"></p>
+<blockquote>
+<h2 id="电脑配置"><a href="#电脑配置" class="headerlink" title="电脑配置"></a>电脑配置</h2></blockquote>
+<ul>
+<li>电脑IP网段与CNC系统网段必须一致，如下图</li>
+</ul>
+<p><img src="https://s3.bmp.ovh/imgs/2022/09/13/f9217e6f725fb694.png"></p>
+<ul>
+<li>例如：三台CNC设备，一个路由器，一台电脑，配置如下图</li>
+<li>更改电脑IP时不要勾选自动获取，要勾选手动配置</li>
+</ul>
+<p><img src="https://s3.bmp.ovh/imgs/2022/09/13/eb46f4ce91163df7.jpg"></p>
+<blockquote>
+<h2 id="系统配置"><a href="#系统配置" class="headerlink" title="系统配置"></a>系统配置</h2></blockquote>
+<ul>
+<li>系统搜索以下参数进行修改</li>
+</ul>
+<figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#1925 设定1 <span class="comment">//以太网功能是否有效，0为无效，1为有效</span></span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#1926 <span class="comment">//根据电脑网段设定，注意最后一位不能与其他CNC系统和其他电脑相同</span></span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>更改完成后关机重启即为生效</li>
+</ul>
+<blockquote>
+<h2 id="功能使用"><a href="#功能使用" class="headerlink" title="功能使用"></a>功能使用</h2></blockquote>
+<ul>
+<li>双击打开安装好的软件</li>
+<li>打开后会显示所有<code>CNC</code>系统的<code>IP</code>，每个<code>IP</code>对应每台<code>CNC</code>系统</li>
+<li>打开一个<code>CNC</code>系统<code>IP</code>，里面就是系统内存、储存卡、<code>U</code>盘等文件夹</li>
+<li>把电脑程序复制或者拖动到文件夹里，<code>CNC</code>系统里即显示程序文件</li>
+</ul>
+<blockquote>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2></blockquote>
+<blockquote>
+<h3 id="软件安装失败"><a href="#软件安装失败" class="headerlink" title="软件安装失败"></a>软件安装失败</h3></blockquote>
+<ul>
+<li>更换电脑或者系统</li>
+<li>重新下载安装包</li>
+</ul>
+<blockquote>
+<h3 id="软件安装了桌面没有图标"><a href="#软件安装了桌面没有图标" class="headerlink" title="软件安装了桌面没有图标"></a>软件安装了桌面没有图标</h3></blockquote>
+<ul>
+<li>搜索或者打开所有程序查找<code>NC Explorer</code></li>
+</ul>
+<blockquote>
+<h3 id="硬件连接好后，软件没有显示设备IP"><a href="#硬件连接好后，软件没有显示设备IP" class="headerlink" title="硬件连接好后，软件没有显示设备IP"></a>硬件连接好后，软件没有显示设备IP</h3></blockquote>
+<ul>
+<li>尝试更换网线</li>
+<li>关闭所有安全杀毒软件</li>
+<li>防火墙关闭或允许<code>NC Explorer</code>程序权限</li>
+<li>关闭设备上数据保护开关</li>
+<li>确认使用正版或完整版<code>Windows</code>系统</li>
+</ul>
+]]></content>
+      <categories>
+        <category>CNC</category>
+      </categories>
+      <tags>
+        <tag>Mitsubishi CNC</tag>
+        <tag>CNC</tag>
+        <tag>程序传输</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Visual Studio Code</title>
+    <url>/article3/</url>
+    <content><![CDATA[<img src="https://s3.bmp.ovh/imgs/2023/02/02/58de2be75fdd87a4.png" alt="" style="width:40%" />
+
+ 
+
+<blockquote>
+<p>Visual Studio Code，微软官方编辑器，主要记录安装过程与使用中的问题，如何解决问题的方法</p>
+</blockquote>
+<span id="more"></span>
+
+<blockquote>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2></blockquote>
+<p><code>Visual Studio Code</code>（简称 <code>VS Code</code> ），由 <code>Microsoft</code>（微软）提供，运行于 <code>Mac OS X</code>、<code>Windows </code>和 <code>Linux</code> 之上的，针对于编写现代 <code>Web</code> 和云应用的跨平台源代码编辑器，可在桌面上运行，并且可用于 <code>Windows</code>，<code>macOS</code> 和 <code>Linux</code>。它具有对<code>JavaScript</code>，<code>TypeScript</code>和<code>Node.js</code>的内置支持，并具有丰富的其他语言（例如 <code>C++</code>，<code>C＃</code>，<code>Java</code>，<code>Python</code>，<code>PHP</code>，<code>Go</code>）和运行时（例如 <code>.NET</code>和 <code>Unity</code>）扩展的生态系统</p>
+<blockquote>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2></blockquote>
+<ul>
+<li><a href="https://code.visualstudio.com/Download">官网</a></li>
+</ul>
+<blockquote>
+<h3 id="解决下载速度慢"><a href="#解决下载速度慢" class="headerlink" title="解决下载速度慢"></a>解决下载速度慢</h3></blockquote>
+<blockquote>
+<p>将下载链接 <code>https://</code> 与 <code>/stable</code> 中间字段，替换为：<code>vscode.cdn.azure.cn</code></p>
+<p>示例如下：</p>
+</blockquote>
+<ul>
+<li><p>替换前：https:&#x2F;&#x2F;<code>az764295.vo.msecnd.net</code>&#x2F;stable&#x2F;97dec172d3256f8ca4bfb2143f3f76b503ca0534&#x2F;VSCodeUserSetup-x64-1.74.3.exe</p>
+</li>
+<li><p>替换后：https:&#x2F;&#x2F;<code>vscode.cdn.azure.cn</code>&#x2F;stable&#x2F;97dec172d3256f8ca4bfb2143f3f76b503ca0534&#x2F;VSCodeUserSetup-x64-1.74.3.exe</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Microsoft</category>
+      </categories>
+      <tags>
+        <tag>编辑器</tag>
+        <tag>Visual Studio Code</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GitHub+Next 博客优化</title>
+    <url>/article2/</url>
+    <content><![CDATA[<img src="https://s3.bmp.ovh/imgs/2023/02/02/2592b7a3736c153d.png" alt="" style="width:50%" />
+
+<blockquote>
+<p>Hexo博客搭建完成后，对博客与主题进行一些优化，其主要记录博客的插件模块、配置文件、css文件、js文件的安装与修改</p>
+</blockquote>
+<span id="more"></span>
+
+<blockquote>
+<h2 id="站点配置"><a href="#站点配置" class="headerlink" title="站点配置"></a>站点配置</h2></blockquote>
+<ul>
+<li>主要更改如下</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 站点信息</span></span><br><span class="line"><span class="attr">title:</span> <span class="comment">#博客标题</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="comment">#博客副标题</span></span><br><span class="line"><span class="attr">description:</span> <span class="comment">#博客说明</span></span><br><span class="line"><span class="attr">keywords:</span> <span class="comment">#博客关键词，主要用于SEO</span></span><br><span class="line"><span class="attr">author:</span> <span class="comment">#作者名称</span></span><br><span class="line"><span class="attr">language:</span> <span class="comment"># 主题语言，如：zh-CN</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="comment">#时区，如：Asia/Shanghai</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 站点链接</span></span><br><span class="line"><span class="attr">url:</span> <span class="comment">#绑定的域名</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="comment">#文章永久链接格式，如：:year/:month/:day/:title/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 代码高亮</span></span><br><span class="line"><span class="attr">highlight:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment">#是否开启代码高亮</span></span><br><span class="line">  <span class="attr">line_number:</span> <span class="literal">true</span> <span class="comment">#是否增加代码行号</span></span><br><span class="line">  <span class="attr">auto_detect:</span> <span class="literal">true</span> <span class="comment">#自动判断代码语言</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 首页博客布局</span></span><br><span class="line"><span class="attr">index_generator:</span> </span><br><span class="line">  <span class="attr">path:</span> <span class="string">&#x27;&#x27;</span> <span class="comment">#博客的默认路径</span></span><br><span class="line">  <span class="attr">per_page:</span> <span class="number">10</span> <span class="comment">#每页博客数量上限</span></span><br><span class="line">  <span class="attr">order_by:</span> <span class="string">-date</span> <span class="comment">#博客排序</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 时间格式</span></span><br><span class="line"><span class="attr">date_format:</span> <span class="string">YYYY-MM-DD</span> <span class="comment">#博客日期格式</span></span><br><span class="line"><span class="attr">time_format:</span> <span class="string">HH:mm:ss</span> <span class="comment">#博客时间格式</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 主题名称</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">next</span> <span class="comment">#主题的名字</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 部署模块</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span> <span class="comment">#部署方式</span></span><br><span class="line">  <span class="attr">repo:</span> </span><br><span class="line">    <span class="attr">github:</span> <span class="string">https://github.com/Dao943/Dao943.github.io.git</span> <span class="comment">#远程仓库地址</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span> <span class="comment">#仓库分支</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 搜索功能</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">./public/search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">10000</span> <span class="comment">#最大搜索数量</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h2 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h2></blockquote>
+<ul>
+<li>主要更改如下</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 允许缓存内容生成</span></span><br><span class="line"><span class="attr">cache:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在Hexo生成后删除不必要的文件.</span></span><br><span class="line"><span class="attr">minify:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 主题布局</span></span><br><span class="line"><span class="comment">#scheme: Muse</span></span><br><span class="line"><span class="comment">#scheme: Mist</span></span><br><span class="line"><span class="comment">#scheme: Pisces</span></span><br><span class="line"><span class="attr">scheme:</span> <span class="string">Gemini</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Dark Mode #黑暗模式</span></span><br><span class="line"><span class="attr">darkmode:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 图标</span></span><br><span class="line"><span class="attr">favicon:</span></span><br><span class="line">  <span class="attr">small:</span> <span class="string">https://avatars.githubusercontent.com/u/97321792?v=4</span></span><br><span class="line">  <span class="attr">medium:</span> <span class="string">https://avatars.githubusercontent.com/u/97321792?v=4</span></span><br><span class="line">  <span class="attr">apple_touch_icon:</span> <span class="string">/images/apple-touch-icon-next.png</span></span><br><span class="line">  <span class="attr">safari_pinned_tab:</span> <span class="string">/images/logo.svg</span></span><br><span class="line">  <span class="comment">#android_manifest: /manifest.json</span></span><br><span class="line">  </span><br><span class="line"><span class="comment"># 版权</span></span><br><span class="line"><span class="attr">creative_commons:</span></span><br><span class="line">  <span class="attr">sidebar:</span> <span class="literal">false</span> <span class="comment"># 侧边栏显示版权信息</span></span><br><span class="line">  <span class="attr">post:</span> <span class="literal">true</span> <span class="comment"># 文章显示版权信息</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 主页菜单</span></span><br><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-home</span></span><br><span class="line">  <span class="attr">about:</span> <span class="string">/about/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-user</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-tags</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-th</span></span><br><span class="line">  <span class="attr">archives:</span> <span class="string">/archives/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-archive</span></span><br><span class="line">  <span class="comment">#schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="comment">#commonweal: /404/ || fa fa-heartbeat</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 侧边栏链接</span></span><br><span class="line"><span class="attr">social:</span></span><br><span class="line">  <span class="attr">GitHub:</span> <span class="string">https://github.com/Dao943</span> <span class="string">||</span> <span class="string">fab</span> <span class="string">fa-github</span></span><br><span class="line">  <span class="attr">E-Mail:</span> <span class="string">mailto:3118743291@qq.com</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-envelope</span></span><br><span class="line">  <span class="comment">#Weibo: https://weibo.com/yourname || fab fa-weibo</span></span><br><span class="line">  <span class="comment">#Google: https://plus.google.com/yourname || fab fa-google</span></span><br><span class="line">  <span class="comment">#Twitter: https://twitter.com/yourname || fab fa-twitter</span></span><br><span class="line">  <span class="comment">#FB Page: https://www.facebook.com/yourname || fab fa-facebook</span></span><br><span class="line">  <span class="comment">#StackOverflow: https://stackoverflow.com/yourname || fab fa-stack-overflow</span></span><br><span class="line">  <span class="comment">#YouTube: https://youtube.com/yourname || fab fa-youtube</span></span><br><span class="line">  <span class="comment">#Instagram: https://instagram.com/yourname || fab fa-instagram</span></span><br><span class="line">  <span class="comment">#Skype: skype:yourname?call|chat || fab fa-skype</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 文章目录</span></span><br><span class="line"><span class="attr">toc:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Automatically add list number to toc.</span></span><br><span class="line">  <span class="attr">number:</span> <span class="literal">false</span> <span class="comment">#自动将列表编号添加到目录</span></span><br><span class="line">  <span class="comment"># If true, all words will placed on next lines if header width longer then sidebar width.</span></span><br><span class="line">  <span class="attr">wrap:</span> <span class="literal">false</span> <span class="comment">#目录自动换行</span></span><br><span class="line">  <span class="comment"># If true, all level of TOC in a post will be displayed, rather than the activated part of it.</span></span><br><span class="line">  <span class="attr">expand_all:</span> <span class="literal">false</span> <span class="comment">#文章级别</span></span><br><span class="line">  <span class="comment"># Maximum heading depth of generated toc.</span></span><br><span class="line">  <span class="attr">max_depth:</span> <span class="number">6</span> <span class="comment">#目录最大深度</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在页脚中显示多语言切换器</span></span><br><span class="line"><span class="attr">language_switcher:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="attr">footer:</span></span><br><span class="line">  <span class="attr">since:</span> <span class="number">2022</span> <span class="comment">#建站时间</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 侧边栏人像</span></span><br><span class="line">  <span class="attr">icon:</span></span><br><span class="line">    <span class="comment"># Icon name in Font Awesome. See: https://fontawesome.com/icons</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">fa</span> <span class="string">fa-fingerprint</span> <span class="comment">#作者图标（默认是author人像)</span></span><br><span class="line">    <span class="comment"># If you want to animate the icon, set it to true.</span></span><br><span class="line">    <span class="attr">animated:</span> <span class="literal">true</span> <span class="comment">#图标是否闪动</span></span><br><span class="line">    <span class="comment"># Change the color of icon, using Hex Code.</span></span><br><span class="line">    <span class="attr">color:</span> <span class="string">&quot;#808080&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 版权作者</span></span><br><span class="line">  <span class="attr">copyright:</span> <span class="string">Hong</span> <span class="string">Dao</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 由Hexo&amp;NexT提供动力</span></span><br><span class="line">  <span class="attr">powered:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 备案信息</span></span><br><span class="line">  <span class="attr">beian:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">icp:</span></span><br><span class="line">    <span class="comment"># The digit in the num of gongan beian.</span></span><br><span class="line">    <span class="attr">gongan_id:</span></span><br><span class="line">    <span class="comment"># The full num of gongan beian.</span></span><br><span class="line">    <span class="attr">gongan_num:</span></span><br><span class="line">    <span class="comment"># The icon for gongan beian. See: http://www.beian.gov.cn/portal/download</span></span><br><span class="line">    <span class="attr">gongan_icon_url:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 自动摘录主页中的描述作为序言文本</span></span><br><span class="line"><span class="attr">excerpt_description:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 阅读更多按钮</span></span><br><span class="line"><span class="attr">read_more_btn:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 文章显示设置</span></span><br><span class="line"><span class="attr">post_meta:</span></span><br><span class="line">  <span class="attr">item_text:</span> <span class="literal">true</span> <span class="comment"># 设为true 可以一行显示，文章的所有属性</span></span><br><span class="line">  <span class="attr">created_at:</span> <span class="literal">true</span> <span class="comment"># 显示创建时间</span></span><br><span class="line">  <span class="attr">updated_at:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment"># 显示修改的时间</span></span><br><span class="line">    <span class="attr">another_day:</span> <span class="literal">true</span> <span class="comment"># 设true时，如果创建时间和修改时间一样则显示一个时间</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="literal">true</span> <span class="comment"># 显示分类信息</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 相关热门帖子</span></span><br><span class="line"><span class="attr">related_posts:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">title:</span> <span class="comment"># 自定义标题，保留为空以使用默认标题</span></span><br><span class="line">  <span class="attr">display_in_home:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 代码块</span></span><br><span class="line"><span class="attr">codeblock:</span></span><br><span class="line">  <span class="comment"># Code Highlight theme</span></span><br><span class="line">  <span class="comment"># All available themes: https://theme-next.js.org/highlight/</span></span><br><span class="line">  <span class="attr">theme:</span></span><br><span class="line">    <span class="attr">light:</span> <span class="string">default</span></span><br><span class="line">    <span class="attr">dark:</span> <span class="string">stackoverflow-dark</span></span><br><span class="line">  <span class="attr">prism:</span></span><br><span class="line">    <span class="attr">light:</span> <span class="string">prism</span></span><br><span class="line">    <span class="attr">dark:</span> <span class="string">prism-dark</span></span><br><span class="line">  <span class="comment"># Add copy button on codeblock</span></span><br><span class="line">  <span class="attr">copy_button:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment"># Available values: default | flat | mac</span></span><br><span class="line">    <span class="attr">style:</span> <span class="string">mac</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 返回顶部</span></span><br><span class="line"><span class="attr">back2top:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Back to top in sidebar.</span></span><br><span class="line">  <span class="attr">sidebar:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">scrollpercent:</span> <span class="literal">true</span> <span class="comment">#在b2t按钮中滚动百分比标签</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 阅读进度条</span></span><br><span class="line"><span class="attr">reading_progress:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Available values: left | right</span></span><br><span class="line">  <span class="attr">start_at:</span> <span class="string">left</span></span><br><span class="line">  <span class="comment"># Available values: top | bottom</span></span><br><span class="line">  <span class="attr">position:</span> <span class="string">top</span></span><br><span class="line">  <span class="attr">reversed:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">color:</span> <span class="string">&quot;#37c6c0&quot;</span></span><br><span class="line">  <span class="attr">height:</span> <span class="string">3px</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h2 id="搜索功能"><a href="#搜索功能" class="headerlink" title="搜索功能"></a>搜索功能</h2></blockquote>
+<ul>
+<li>博客目录右键打开Git，安装插件模块</li>
+</ul>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">cnpm install hexo-generator-searchdb <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>站点配置文件，增加以下内容到最后位置</li>
+</ul>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="meta"># Local Search搜索功能</span></span><br><span class="line"><span class="symbol">search:</span></span><br><span class="line"><span class="symbol">  path:</span> search.xml</span><br><span class="line"><span class="symbol">  field:</span> post</span><br><span class="line"><span class="symbol">  format:</span> html</span><br><span class="line"><span class="symbol">  limit:</span> <span class="number">10000</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>主题配置文件，启动搜索功能</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Local search</span></span><br><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h2 id="文章加密"><a href="#文章加密" class="headerlink" title="文章加密"></a>文章加密</h2></blockquote>
+<ul>
+<li>博客目录右键打开Git，安装插件模块</li>
+</ul>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-bolg-encrypt</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>站点配置文件，增加以下内容到最后位置</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 文章加密 hexo-blog-encrypt</span></span><br><span class="line"><span class="comment"># See: https://github.com/D0n9X1n/hexo-blog-encrypt/blob/master/ReadMe.zh.md</span></span><br><span class="line"><span class="attr">encrypt:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">theme:</span> <span class="string">Up</span> <span class="comment"># 主题</span></span><br><span class="line">  <span class="attr">abstract:</span> <span class="string">&#x27;内容已加密，请输入密码后阅读&#x27;</span></span><br><span class="line">  <span class="attr">message:</span> <span class="string">&#x27;内容已加密，请输入密码后阅读&#x27;</span></span><br><span class="line">  <span class="attr">wrong_pass_message:</span> <span class="string">&#x27;密码错误，请重试&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>文章添加<code>password</code>属性</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+        <tag>Next</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mitsubishi CNC 参数记录</title>
+    <url>/article5/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="密码错误，请重试" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="b4d96955d5ed918afbbbeab0d492444c3456aa19c733f3e521e3fd947288160b">9ba56dd77a5b08c17b568174c9ddf76a9089dbdd86719395ef699a5f6b1429df013f82f92756ed3cbe3f7253e61bf2e416ad73569cdd0c8f9656e466f98c55db0f092c2a10a8c3ead74c55eed26842a66fae98aeeceb7ddc168fab85f41d020f0124ae932af9fbc00fe7430b35a452f16434a627069184197bd9d76eddd2a828303c0fd124a9932c17a913aff6d4332513d38637f5c3f7153826aeb8cd9186d03c05aa47082fb02edcc1254eb0b50f8f7612dc9f46b10331bbcf66e27df3afaa7a210b5374091a490fed475fd7e4f79fad7e72d5bef29688c8960a4be0bc0bd66028566040c016141759076d5ee4ae68ba5e72bbd3e183a20d670a12518c6321563cc321536dd274c3779a8f1041f8683379510e0b729aac8e2c3305017d541c4340df0f7471be661575de8f1ce6e0103419f75a09a02d063ab3c75d45c3ed6af6fe74cd7a9e3b82b3236390ea0dd5e564578dd358e88537de66514dfc03bc2cad03134d227068c1f6db9a5f48f74b6a3d2612485ce51c83917be17f4cdcc64a9d1ae80e4856c30c628222a1162cfa585263c798c11eaab42aefe7e8822c77be606e5914e69d431a4f5406a6ba55efe1bb8a644f3f9400a54f99afe8b2bc7f260be9bfe98976b656bce97bf88a7ab894b0da3216fbd5504a61172fb2bd0eb96b0dc4e7c39460285b45f71da1a8685bc32970d1aa4d9b1734ff74cdb221764b58ed3e5d5574d4efabfebe3ed0d10b5c961b706aa329648676d407b87deb03a672abdd8f3a79bba2f86f5703b97bbc922b65ef99d7bd944012c5ae837246f945c64581d9be7770de8cec8e200dd7ac999491320389fe3f5f822b3ff1f024fe8363ec972153e505e612706c8ac1d6adc915d5f95ffc299b6fbee01c84fd05a26fc104d59e85e71bc11524e0c05c8d2843a778bf137d9e40f0dab4d0895faa0343f27bdd3aad02a465e7baa873bc5aa78a2e676cd63bfd4f90b50185c8ce9a59235512108e8a30b89b623587fbef6070eff69cd272bf80525987d9c544d26f733bab7308a2579740893ea0fb7b224df6c836991eba8689fefbfdb4c4163226178b51dbeffdd684b821cf93e0280e3a543092cb09365ac11b7b46b8313723e42e71e4b5684c9a463bc178f9c0a133fb3d55f782e9a625ad5b94430657bc1b36b7c29277f8c6720a8f10c7a1ad45d438c16c632867deb5dbaa550d13fdd4bc6613b76daedacd1c651d1c663dea1e68dbb7158cd0d944f6db1aefb36a40ecec54f3c3c33046ca028900a0713327f5b811181dc7b4c7e13ee2a3e0f14b045dcb2cf0163e1d211a65cf1ea7bde27d4a870d60c6df</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-up">
+      <input class="hbe hbe-input-field hbe-input-field-up" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-up" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-up">请输入密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>CNC</category>
+      </categories>
+      <tags>
+        <tag>Mitsubishi CNC</tag>
+        <tag>CNC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mitsubishi CNC 加工调整</title>
+    <url>/article6/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="密码错误，请重试" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="300d47496af74993e0472e4925c5fc90f1fcfb3b0b1fc63d589b672774356cb7">9ba56dd77a5b08c17b568174c9ddf76a9089dbdd86719395ef699a5f6b1429df013f82f92756ed3cbe3f7253e61bf2e416ad73569cdd0c8f9656e466f98c55db0f092c2a10a8c3ead74c55eed26842a66fae98aeeceb7ddc168fab85f41d020f0124ae932af9fbc00fe7430b35a452f16434a627069184197bd9d76eddd2a828303c0fd124a9932c17a913aff6d4332513d38637f5c3f7153826aeb8cd9186d03c05aa47082fb02edcc1254eb0b50f8f7612dc9f46b10331bbcf66e27df3afaa53c2b983f274277166f9161156cdac98999b7a86a49afc5ae3e5649c70a915ac67e61b08a7012286b9fc402441c03f37000db126a558699430cd4eb4d80c7cbebd60b7dfdf65fb3830f2f38e34758fd7bdbc8d46613e855a19a99f0126f55a9d68f6dbdba47e32647642f9356dd8ebf7b65677991dea2d5d55e449bbab44d8b4bcdc85f59a65bbe6bfcb2337a0af5b1671265249aea413607fe182a24acdc1719ba661245a60066e9841cd09be2944bd58784edb33c6b0027aff5e09b129593108c7be4ce56af78c0153230b22713067a202b9b52ed93312e7a9faacd308f27d39c087aa7297a2adc5cd7f8de9b1f36b31d1cfc40e961c0fca8b03f0931ff63e4727f451c9fe76614b106f1053e2646e3bf87b9b97754ce15077708410b239bdf98afbb2980eb44ea1bc4bf01f7ad373f01f7a76d6cfc9228d830abe1e87d3dfd4e9587e0e3431e030b776e2ac09b2a7fee3662067a9a31e3957648a92c3b47e01f793c0612c815406939aa37b8d281cc9ce402ec6f7b6e8fa4c985f403d361ddcfecea0cf3db51081da5376f2b51c19cf0d0992bb3a0b5b72bacdf3893eee81fd567abaf0b5423a06e88cc8be15a16800ae9ff0630b48397bf0a2f30cd68d9d6b5cd7d159ddb4437c04621c9eac99045530b2c1a9aa2e353a730e0a030c076de6c9892899a8a25e1161ed26121f25452eaf5e03ca82f4a3085f9617a62a4cae694a5dee7f94f3ed2a79741721bed1e3ab75817a252f1523494ef0bef993ffd2f525ec9dd587caaf46ff8139f4e68de86d35bf2b46cb9b6a537cf7eb92149d8ae87cf28442d18ab25dc83e377789ff45a0aeaa81fb3fe88808e67dd68c37715db615e5e91d2d8febc81505035cc7f2e680e9c9a12f13f8ed352b5afb2eb1a78b8a38d4cf668dd5844bf4c9a7dca6b67c6195163f463ed10a546c1aa8b79d7d164de12fde3aab4f7ec2085e2077f7f3e809344a17067f9fc8d1f10cdba200a8517bf1773ad9f3a9aefe57e0ca597cdafbaf5fc3a78088e3b13e981033d57fe7e36e6a733dd6a4b4bca9c67e824a2cfa0a9c8be15e339720138a617d13f0a993d665b5feec54f5e887a7cf6d0c6c4372b2a119df95099a3ffd4b9b29d944c60e814c433de0a27627bfc90bd02694fd5db930a2afdda981ba1cf12d095f23ca73541744c11de1ba5679997a746cafc1d497388ec9527244a99bbc1b371a29b6f3c38a75bf17cfc533e60af8fd991bf8115f3e190b602aa6b6cf57cdec5a31d4ce5e7df2f5296eb5d6e4ac52a950756c3f7ec2129a48e59c005890de3bba5193d10018e493fdf53e6d65be6ba47a38657a3b0b3b83bc7f0c4e41d32b449c05b806ddc4b5bb681d57f32c58618bfb892860602b623d3bf26b78e6dbc743eac40bce4561a86dced9e4d041ca49e7d941fff0618eb018e1ca037db065ebc9367cc8edcf9705c1a76151697ffbc9e7a9e2065467c15f4a436fbf3fef03e99a1a48576f95f7604bc5cd6d62941d28313add18568e38eb17f5c35dc09fad8e93f60581ccdc2a76f5c91f2f131098bf25852815e81e85c446f3136f52126213873b41e2febb2243a12dde4d97255d280a2dffc50214ee6627fc0389a769b7699d5e744a8822abbf3312db24677a873a872ef294dc97e671a1ce88b570562b98e971227ebbf69e26f20a179fc178b098cba2f2821eb177a484168988f8fd989f52df16c14ba60bb291c8e65f25ec0fd7b45d5a5773d948e486f490e072c126aa4fb29ebf0d95213420da2f6a4ec961ba970cd7c2e85aa7f023f660ac3ec79af7a48d9e23ec401fab5dcd65d9351fa3be00827a91c7e465b865fd0aaf9b3cb1fe71c978df9d7231c09d183136bcc4a9dfd8958f3e8f14a887e70169a16ad2eb5888145f23846ae9cb5a78fcb58403c32a4b09c9ec7183e80513575e4fd16b588cc5959b5ef8aa49152318046d8d3a959d03ee454b18361153c769748001f45181cc4574d6261ae9e432f1f6c9881415e3484fb1edae1209ef1477d56b9db91591ed9b93bf60836dcd8a1319fccf6247b399b7e78de452d1a13965d9a60b2c683fea2aaf56e5b20d41601a0435e0b4c744b1e4c5727382a1775b27ca57bda2967b23ed6cd1747a68a362114aa01bacb7e81525f2d728684cce8679080265e083c9371e34d6e19151d288afc1437a203c2d2975fb5936bf21e5dcf436c639c0e189452e16d883a3fa33e90eee72eeb6cc6b873483e21366c44306d101b6408819883de3dfbbd4d3</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-up">
+      <input class="hbe hbe-input-field hbe-input-field-up" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-up" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-up">请输入密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>CNC</category>
+      </categories>
+      <tags>
+        <tag>Mitsubishi CNC</tag>
+        <tag>CNC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mitsubishi CNC 伺服调试</title>
+    <url>/article7/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="密码错误，请重试" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="9042e41ca2f52155b8467e3c0b2001d7aa7833320bfea701a710e65fe230540b">9ba56dd77a5b08c17b568174c9ddf76a9089dbdd86719395ef699a5f6b1429df013f82f92756ed3cbe3f7253e61bf2e416ad73569cdd0c8f9656e466f98c55db0f092c2a10a8c3ead74c55eed26842a66fae98aeeceb7ddc168fab85f41d020f0124ae932af9fbc00fe7430b35a452f16434a627069184197bd9d76eddd2a828303c0fd124a9932c17a913aff6d4332513d38637f5c3f7153826aeb8cd9186d03c05aa47082fb02edcc1254eb0b50f8f7612dc9f46b10331bbcf66e27df3afaa0ec79a64cb783d823918dd81123408c7b118ea9112352e3502f9d8467038fb77b6b1acdec6f36a6a0e5bafd376451dfeddbda2799f2fcbab8792b37463ecf3cc9ef43f595c0b8b4f3317eedda7d18d1b1310f0519452ce17646123ab2ce68af42bd0a164afc0a8b1f51b1277ba8732919ab4ac3ebb06397da26c04c8348ef7d0d2178fa32aed0305908c04ba6fe867cecaa431f90735ef45d9a497a2a1daa705a7397ae9209cc4b37bf9bceb52fab1cd</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-up">
+      <input class="hbe hbe-input-field hbe-input-field-up" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-up" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-up">请输入密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>CNC</category>
+      </categories>
+      <tags>
+        <tag>Mitsubishi CNC</tag>
+        <tag>CNC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Syntec CNC 参数记录</title>
+    <url>/article8/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="密码错误，请重试" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="5accfba9a11adf0864ddaf00507fe18794c0c1b1869d23c9bd9df1c73401bf0b">9ba56dd77a5b08c17b568174c9ddf76a9089dbdd86719395ef699a5f6b1429df4f9e0647f13bd87baf84c49e841f39d4dcd03c7025b533bb9e760fd51082da584b7f7fe0f923e1c06facb38509867980fdc2751139b85e3b5762f6fef975b46d1b43f36d4e7f3fe049210705c250216e2ece2c03264da38aaa41f2cf6f020ce103a15565745048cc7c13351be7ad61c0048fcd564260cc51cd083d19a15b3d5b2d60caca211d3c3171bd72ff302fb685abc4eecbba9c802dc91c5833d9983922c024f1f1478c608b5829a0a405155e08c1e8b79d39a00d1e2ae5d5f649cf11b92a0ceb6168773510b1cd681dd118f43520bfb706321a5ab83ee106bbe0f53ac2165de79bf0d9dc6944d6ba9c72f7635621dde16019525070121a6bff11590e4b66a8f30f8c00567bbed8444430e4bfe1ece2cc5aa6eb3852ed35aeaddb895d93ea375e063be4958c4a7c324cc45f83c6a42da184cab27ae2cdd61efd1ddf69370f2f413e7c100fdc3e3a8caa10c3233f9e0e5f16e7a8353a2bef7501d3e651bfac955d56ffba14ce83778988ff1e597ecdb0bde1296c92a7b450e78ab06442b6855d4c6623e3563cc7f8876cdb924b6c179a96b820cfc5df3056a75a0ea55ecd7bb5c41c32499b0901bc07c21233d4cdcbcd959c2d19532d0f42c01b217c1b700891fcd95aef5ac59b3970436571fbb7cdf067f00d358fe103abe177141f713fb02817e6bb1308cd1708d480b354e7f1dbc4a6d65da796622d6c4199bace7830c8fdf52640662edc9114971332f7e7f8bef701d4c64145bcc396c0705f67e0ade3fdc0f88699d0dda1d6a7800799a8fee3f1a13d95deef1bfbcf76e1f61508f8846535bc42efd6886b3f0382850afdde661b7313a45c00fa7075f84bc4fa01869998aff1611fc1f2fe184e9e75b1401cc0e0b10969db94dea1a4e51f92df76e9bf71fac341ec93def2ebbee21be5ec8c9f3ef9968be4d38e7bbf501b848d568202a73d65df460f71b0caa86c54f32a22fa068bdd85fbec8a8aadca583ad5b1efa312ea6174af8244ce6bd59bc29f015ff153b03d4979d67627fec4808399babec7baef67dc1bcaae9589e170d214b7d2d024dc6746c2cb38a8ce594f4d49c22d189e6399436eea17ae0ce3311ab478509814fe37e4c59d18738ef5a355264a42b9fb63ab92fefc8a685c44164d26523272c3466763de1a53652676bbf4ef5681ba97c30f59b648b4ad798c0919b89c2a5cc3f1f3199dbcb153be74540e543c6aa1cd70ca0caa3e26a2d98fb8f80db229e82d758ac7516c094e2b9c5b7cdfbec221b511fe9923efddd7d50dc09fbfcfaa66e1b81119924a74d302c4f56f405f9dcce3081750a156587ba0ce0fd73f9bec3cdacc5255ab6c35f52cf36bea96c3f2de50a45f21846a4fb5a433fc7af3ba9043b59c8b71728053eff54798d5806e9bbd34d419a07e7a546f797ddb60fbf62fe04842cdb8ef705c79d7bd87c9f49e0397ffc435635daebd8a09225f9f1243cb2de66268e8e667941974ab7a74e1aec5</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-up">
+      <input class="hbe hbe-input-field hbe-input-field-up" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-up" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-up">请输入密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>CNC</category>
+      </categories>
+      <tags>
+        <tag>CNC</tag>
+        <tag>Syntec CNC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Syntec CNC 五轴调试</title>
+    <url>/article9/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="密码错误，请重试" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="58927f1d9205fc07e49f4641ed7da4e38d5d3891debf81001cf3bcfa940241b6">9ba56dd77a5b08c17b568174c9ddf76a9089dbdd86719395ef699a5f6b1429df4f9e0647f13bd87baf84c49e841f39d4dcd03c7025b533bb9e760fd51082da584b7f7fe0f923e1c06facb38509867980fdc2751139b85e3b5762f6fef975b46d1b43f36d4e7f3fe049210705c250216e2ece2c03264da38aaa41f2cf6f020ce103a15565745048cc7c13351be7ad61c0048fcd564260cc51cd083d19a15b3d5b2d60caca211d3c3171bd72ff302fb685abc4eecbba9c802dc91c5833d9983922c024f1f1478c608b5829a0a405155e08c1e8b79d39a00d1e2ae5d5f649cf11b95b687fa81cb4177dfc63ebdbc972a06b8290fcaecc8ea85481ef9b5d5a0aa77d269af2f7a5be84ecd5df57cfc751fa6b8c75fe61aedbbe8f8e9c20b9408c1bf0b070cf3f0813802cef245f9d014abd160f707835fd302bb1d55fef52abf48038721e550f694824623737d7538f5d2f5b4dbde1f9a8262448b4d55e0f21de3534620148213b384bd35ca58ce0b618397580c5824784c57e6b1a50752f2903dce5748cbcd598eff37642b785212f1150c49ff6e5b42277f1eac4a8ff8f2b53d290ca160165408bfbd66bbca6a67284cd53a65ec0e7bb24bd563fd9a97471ab59743c3b68d6d180a539be2bdee3d19d1b55d94a79329676f99558098d32e81e4cc7389bb4fa39e0790b78dc6730191ee2e742ffb3478fc1fe31accbc77f061613faeba6fe5f5f7287fbffa0aa931971eabcc1e8b306f33c0315a1e9c1a77060b0ad86588f54c8f762f73224531f7c30169c42e4768fb80684a35632baa79609d837d3ebce61c66652112b3dc79fe8c9b0c98d7c2a8ebc4b2a6a4339c378b6454e0c923e9d99b83cce079c3569a7933faeda7907bf7c1e8151758a6b27661a3b9b0bc81b803828807c0748cc9de113d08dff2265f204fb8da065a19d524d6d97beadcfcf7e7fd717d237baefd71ca42880a3681aaf0cb862fb130ef0bd535348f7a57657bfe4f100478c55ac5aad7171cfdb2f937d015d0369467412ea4e24324d3403d44c785f1aec20fc14881dc970ad2b9b8bbeed7701938261edfe9a31fbc9fa61faa64bb8b36342c77d62a2b1c824a1d955524e76ffe357e752a3f8e7b0bd21</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-up">
+      <input class="hbe hbe-input-field hbe-input-field-up" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-up" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-up">请输入密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>CNC</category>
+      </categories>
+      <tags>
+        <tag>CNC</tag>
+        <tag>Syntec CNC</tag>
+      </tags>
+  </entry>
+</search>

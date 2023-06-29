@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://avatars.githubusercontent.com/u/97321792?v=4">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://avatars.githubusercontent.com/u/97321792?v=4">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.hungdaotsang.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"./public/search.xml"};
+  </script>
+
+  <meta name="description" content="加密文章，禁止访问">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mitsubishi CNC 加工调整">
+<meta property="og:url" content="https://www.hungdaotsang.com/article6/index.html">
+<meta property="og:site_name" content="HungDao Tsang">
+<meta property="og:description" content="加密文章，禁止访问">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-04-19T11:30:49.000Z">
+<meta property="article:modified_time" content="2023-04-22T06:23:14.990Z">
+<meta property="article:author" content="HungDao Tsang">
+<meta property="article:tag" content="Mitsubishi CNC">
+<meta property="article:tag" content="CNC">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.hungdaotsang.com/article6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Mitsubishi CNC 加工调整 | HungDao Tsang</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">HungDao Tsang</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Welcome to my blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.hungdaotsang.com/article6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="HungDao Tsang">
+      <meta itemprop="description" content="记录生活中的点点滴滴">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HungDao Tsang">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Mitsubishi CNC 加工调整
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-04-19 19:30:49" itemprop="dateCreated datePublished" datetime="2023-04-19T19:30:49+08:00">2023-04-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-22 14:23:14" itemprop="dateModified" datetime="2023-04-22T14:23:14+08:00">2023-04-22</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CNC/" itemprop="url" rel="index"><span itemprop="name">CNC</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="密码错误，请重试" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="300d47496af74993e0472e4925c5fc90f1fcfb3b0b1fc63d589b672774356cb7">9ba56dd77a5b08c17b568174c9ddf76a9089dbdd86719395ef699a5f6b1429df013f82f92756ed3cbe3f7253e61bf2e416ad73569cdd0c8f9656e466f98c55db0f092c2a10a8c3ead74c55eed26842a66fae98aeeceb7ddc168fab85f41d020f0124ae932af9fbc00fe7430b35a452f16434a627069184197bd9d76eddd2a828303c0fd124a9932c17a913aff6d4332513d38637f5c3f7153826aeb8cd9186d03c05aa47082fb02edcc1254eb0b50f8f7612dc9f46b10331bbcf66e27df3afaa53c2b983f274277166f9161156cdac98999b7a86a49afc5ae3e5649c70a915ac67e61b08a7012286b9fc402441c03f37000db126a558699430cd4eb4d80c7cbebd60b7dfdf65fb3830f2f38e34758fd7bdbc8d46613e855a19a99f0126f55a9d68f6dbdba47e32647642f9356dd8ebf7b65677991dea2d5d55e449bbab44d8b4bcdc85f59a65bbe6bfcb2337a0af5b1671265249aea413607fe182a24acdc1719ba661245a60066e9841cd09be2944bd58784edb33c6b0027aff5e09b129593108c7be4ce56af78c0153230b22713067a202b9b52ed93312e7a9faacd308f27d39c087aa7297a2adc5cd7f8de9b1f36b31d1cfc40e961c0fca8b03f0931ff63e4727f451c9fe76614b106f1053e2646e3bf87b9b97754ce15077708410b239bdf98afbb2980eb44ea1bc4bf01f7ad373f01f7a76d6cfc9228d830abe1e87d3dfd4e9587e0e3431e030b776e2ac09b2a7fee3662067a9a31e3957648a92c3b47e01f793c0612c815406939aa37b8d281cc9ce402ec6f7b6e8fa4c985f403d361ddcfecea0cf3db51081da5376f2b51c19cf0d0992bb3a0b5b72bacdf3893eee81fd567abaf0b5423a06e88cc8be15a16800ae9ff0630b48397bf0a2f30cd68d9d6b5cd7d159ddb4437c04621c9eac99045530b2c1a9aa2e353a730e0a030c076de6c9892899a8a25e1161ed26121f25452eaf5e03ca82f4a3085f9617a62a4cae694a5dee7f94f3ed2a79741721bed1e3ab75817a252f1523494ef0bef993ffd2f525ec9dd587caaf46ff8139f4e68de86d35bf2b46cb9b6a537cf7eb92149d8ae87cf28442d18ab25dc83e377789ff45a0aeaa81fb3fe88808e67dd68c37715db615e5e91d2d8febc81505035cc7f2e680e9c9a12f13f8ed352b5afb2eb1a78b8a38d4cf668dd5844bf4c9a7dca6b67c6195163f463ed10a546c1aa8b79d7d164de12fde3aab4f7ec2085e2077f7f3e809344a17067f9fc8d1f10cdba200a8517bf1773ad9f3a9aefe57e0ca597cdafbaf5fc3a78088e3b13e981033d57fe7e36e6a733dd6a4b4bca9c67e824a2cfa0a9c8be15e339720138a617d13f0a993d665b5feec54f5e887a7cf6d0c6c4372b2a119df95099a3ffd4b9b29d944c60e814c433de0a27627bfc90bd02694fd5db930a2afdda981ba1cf12d095f23ca73541744c11de1ba5679997a746cafc1d497388ec9527244a99bbc1b371a29b6f3c38a75bf17cfc533e60af8fd991bf8115f3e190b602aa6b6cf57cdec5a31d4ce5e7df2f5296eb5d6e4ac52a950756c3f7ec2129a48e59c005890de3bba5193d10018e493fdf53e6d65be6ba47a38657a3b0b3b83bc7f0c4e41d32b449c05b806ddc4b5bb681d57f32c58618bfb892860602b623d3bf26b78e6dbc743eac40bce4561a86dced9e4d041ca49e7d941fff0618eb018e1ca037db065ebc9367cc8edcf9705c1a76151697ffbc9e7a9e2065467c15f4a436fbf3fef03e99a1a48576f95f7604bc5cd6d62941d28313add18568e38eb17f5c35dc09fad8e93f60581ccdc2a76f5c91f2f131098bf25852815e81e85c446f3136f52126213873b41e2febb2243a12dde4d97255d280a2dffc50214ee6627fc0389a769b7699d5e744a8822abbf3312db24677a873a872ef294dc97e671a1ce88b570562b98e971227ebbf69e26f20a179fc178b098cba2f2821eb177a484168988f8fd989f52df16c14ba60bb291c8e65f25ec0fd7b45d5a5773d948e486f490e072c126aa4fb29ebf0d95213420da2f6a4ec961ba970cd7c2e85aa7f023f660ac3ec79af7a48d9e23ec401fab5dcd65d9351fa3be00827a91c7e465b865fd0aaf9b3cb1fe71c978df9d7231c09d183136bcc4a9dfd8958f3e8f14a887e70169a16ad2eb5888145f23846ae9cb5a78fcb58403c32a4b09c9ec7183e80513575e4fd16b588cc5959b5ef8aa49152318046d8d3a959d03ee454b18361153c769748001f45181cc4574d6261ae9e432f1f6c9881415e3484fb1edae1209ef1477d56b9db91591ed9b93bf60836dcd8a1319fccf6247b399b7e78de452d1a13965d9a60b2c683fea2aaf56e5b20d41601a0435e0b4c744b1e4c5727382a1775b27ca57bda2967b23ed6cd1747a68a362114aa01bacb7e81525f2d728684cce8679080265e083c9371e34d6e19151d288afc1437a203c2d2975fb5936bf21e5dcf436c639c0e189452e16d883a3fa33e90eee72eeb6cc6b873483e21366c44306d101b6408819883de3dfbbd4d3</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-up">
+      <input class="hbe hbe-input-field hbe-input-field-up" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-up" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-up">请输入密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>HungDao Tsang
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.hungdaotsang.com/article6/" title="Mitsubishi CNC 加工调整">https://www.hungdaotsang.com/article6/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Mitsubishi-CNC/" rel="tag"># Mitsubishi CNC</a>
+              <a href="/tags/CNC/" rel="tag"># CNC</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/article7/" rel="prev" title="Mitsubishi CNC 伺服调试">
+      <i class="fa fa-chevron-left"></i> Mitsubishi CNC 伺服调试
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/article8/" rel="next" title="Syntec CNC 参数记录">
+      Syntec CNC 参数记录 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">HungDao Tsang</p>
+  <div class="site-description" itemprop="description">记录生活中的点点滴滴</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Dao943" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Dao943" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:3118743291@qq.com" title="E-Mail → mailto:3118743291@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2022 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-fa fa-fingerprint"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HungDao Tsang</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
