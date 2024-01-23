@@ -3,11 +3,11 @@
   <title>HungDao Tsang</title>
   
   
-  <link href="https://www.hungdaotsang.com/atom.xml" rel="self"/>
+  <link href="https://github.hungdaotsang.com/atom.xml" rel="self"/>
   
-  <link href="https://www.hungdaotsang.com/"/>
+  <link href="https://github.hungdaotsang.com/"/>
   <updated>2023-10-28T01:44:37.930Z</updated>
-  <id>https://www.hungdaotsang.com/</id>
+  <id>https://github.hungdaotsang.com/</id>
   
   <author>
     <name>HungDao Tsang</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Windows 安装与激活</title>
-    <link href="https://www.hungdaotsang.com/posts/windows-install/"/>
-    <id>https://www.hungdaotsang.com/posts/windows-install/</id>
+    <link href="https://github.hungdaotsang.com/posts/windows-install/"/>
+    <id>https://github.hungdaotsang.com/posts/windows-install/</id>
     <published>2023-10-09T02:23:56.000Z</published>
     <updated>2023-10-28T01:44:37.930Z</updated>
     
@@ -33,21 +33,21 @@
     
     
     
-    <category term="Windows" scheme="https://www.hungdaotsang.com/categories/Windows/"/>
+    <category term="Windows" scheme="https://github.hungdaotsang.com/categories/Windows/"/>
     
     
-    <category term="电脑" scheme="https://www.hungdaotsang.com/tags/%E7%94%B5%E8%84%91/"/>
+    <category term="电脑" scheme="https://github.hungdaotsang.com/tags/%E7%94%B5%E8%84%91/"/>
     
-    <category term="系统" scheme="https://www.hungdaotsang.com/tags/%E7%B3%BB%E7%BB%9F/"/>
+    <category term="系统" scheme="https://github.hungdaotsang.com/tags/%E7%B3%BB%E7%BB%9F/"/>
     
-    <category term="Windows" scheme="https://www.hungdaotsang.com/tags/Windows/"/>
+    <category term="Windows" scheme="https://github.hungdaotsang.com/tags/Windows/"/>
     
   </entry>
   
   <entry>
     <title>Syntec CNC</title>
-    <link href="https://www.hungdaotsang.com/posts/syntec-cnc/"/>
-    <id>https://www.hungdaotsang.com/posts/syntec-cnc/</id>
+    <link href="https://github.hungdaotsang.com/posts/syntec-cnc/"/>
+    <id>https://github.hungdaotsang.com/posts/syntec-cnc/</id>
     <published>2023-04-25T11:00:33.000Z</published>
     <updated>2023-10-10T09:04:02.212Z</updated>
     
@@ -61,17 +61,17 @@
     
     
     
-    <category term="CNC" scheme="https://www.hungdaotsang.com/categories/CNC/"/>
+    <category term="CNC" scheme="https://github.hungdaotsang.com/categories/CNC/"/>
     
     
-    <category term="Syntec CNC" scheme="https://www.hungdaotsang.com/tags/Syntec-CNC/"/>
+    <category term="Syntec CNC" scheme="https://github.hungdaotsang.com/tags/Syntec-CNC/"/>
     
   </entry>
   
   <entry>
     <title>Mitsubishi CNC</title>
-    <link href="https://www.hungdaotsang.com/posts/mitsubishi-cnc/"/>
-    <id>https://www.hungdaotsang.com/posts/mitsubishi-cnc/</id>
+    <link href="https://github.hungdaotsang.com/posts/mitsubishi-cnc/"/>
+    <id>https://github.hungdaotsang.com/posts/mitsubishi-cnc/</id>
     <published>2023-04-19T11:30:49.000Z</published>
     <updated>2023-10-10T09:03:16.712Z</updated>
     
@@ -85,17 +85,17 @@
     
     
     
-    <category term="CNC" scheme="https://www.hungdaotsang.com/categories/CNC/"/>
+    <category term="CNC" scheme="https://github.hungdaotsang.com/categories/CNC/"/>
     
     
-    <category term="Mitsubishi CNC" scheme="https://www.hungdaotsang.com/tags/Mitsubishi-CNC/"/>
+    <category term="Mitsubishi CNC" scheme="https://github.hungdaotsang.com/tags/Mitsubishi-CNC/"/>
     
   </entry>
   
   <entry>
     <title>Hexo next 博客优化</title>
-    <link href="https://www.hungdaotsang.com/posts/hexo-next2/"/>
-    <id>https://www.hungdaotsang.com/posts/hexo-next2/</id>
+    <link href="https://github.hungdaotsang.com/posts/hexo-next2/"/>
+    <id>https://github.hungdaotsang.com/posts/hexo-next2/</id>
     <published>2022-09-15T09:30:09.000Z</published>
     <updated>2023-10-15T06:48:17.004Z</updated>
     
@@ -109,21 +109,21 @@
     
     
     
-    <category term="Hexo" scheme="https://www.hungdaotsang.com/categories/Hexo/"/>
+    <category term="Hexo" scheme="https://github.hungdaotsang.com/categories/Hexo/"/>
     
     
-    <category term="博客" scheme="https://www.hungdaotsang.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    <category term="博客" scheme="https://github.hungdaotsang.com/tags/%E5%8D%9A%E5%AE%A2/"/>
     
-    <category term="Next" scheme="https://www.hungdaotsang.com/tags/Next/"/>
+    <category term="Next" scheme="https://github.hungdaotsang.com/tags/Next/"/>
     
-    <category term="Hexo" scheme="https://www.hungdaotsang.com/tags/Hexo/"/>
+    <category term="Hexo" scheme="https://github.hungdaotsang.com/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>Mitsubishi CNC 程序传输</title>
-    <link href="https://www.hungdaotsang.com/posts/nc-explorer/"/>
-    <id>https://www.hungdaotsang.com/posts/nc-explorer/</id>
+    <link href="https://github.hungdaotsang.com/posts/nc-explorer/"/>
+    <id>https://github.hungdaotsang.com/posts/nc-explorer/</id>
     <published>2022-09-13T03:20:55.000Z</published>
     <updated>2023-10-10T09:04:48.093Z</updated>
     
@@ -137,17 +137,17 @@
     
     
     
-    <category term="CNC" scheme="https://www.hungdaotsang.com/categories/CNC/"/>
+    <category term="CNC" scheme="https://github.hungdaotsang.com/categories/CNC/"/>
     
     
-    <category term="Mitsubishi CNC" scheme="https://www.hungdaotsang.com/tags/Mitsubishi-CNC/"/>
+    <category term="Mitsubishi CNC" scheme="https://github.hungdaotsang.com/tags/Mitsubishi-CNC/"/>
     
   </entry>
   
   <entry>
     <title>Hexo next 博客搭建</title>
-    <link href="https://www.hungdaotsang.com/posts/hexo-next1/"/>
-    <id>https://www.hungdaotsang.com/posts/hexo-next1/</id>
+    <link href="https://github.hungdaotsang.com/posts/hexo-next1/"/>
+    <id>https://github.hungdaotsang.com/posts/hexo-next1/</id>
     <published>2022-09-10T17:06:53.000Z</published>
     <updated>2023-10-15T06:48:01.797Z</updated>
     
@@ -161,14 +161,14 @@
     
     
     
-    <category term="Hexo" scheme="https://www.hungdaotsang.com/categories/Hexo/"/>
+    <category term="Hexo" scheme="https://github.hungdaotsang.com/categories/Hexo/"/>
     
     
-    <category term="博客" scheme="https://www.hungdaotsang.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    <category term="博客" scheme="https://github.hungdaotsang.com/tags/%E5%8D%9A%E5%AE%A2/"/>
     
-    <category term="Next" scheme="https://www.hungdaotsang.com/tags/Next/"/>
+    <category term="Next" scheme="https://github.hungdaotsang.com/tags/Next/"/>
     
-    <category term="Hexo" scheme="https://www.hungdaotsang.com/tags/Hexo/"/>
+    <category term="Hexo" scheme="https://github.hungdaotsang.com/tags/Hexo/"/>
     
   </entry>
   
