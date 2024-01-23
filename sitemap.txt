@@ -15,8 +15,8 @@ https://github.hungdaotsang.com/tags/index.html
 https://github.hungdaotsang.com/categories/index.html
 https://github.hungdaotsang.com/
 https://github.hungdaotsang.com/tags/%E5%8D%9A%E5%AE%A2/
-https://github.hungdaotsang.com/tags/Next/
 https://github.hungdaotsang.com/tags/Hexo/
+https://github.hungdaotsang.com/tags/Next/
 https://github.hungdaotsang.com/tags/Mitsubishi-CNC/
 https://github.hungdaotsang.com/tags/Syntec-CNC/
 https://github.hungdaotsang.com/tags/%E7%94%B5%E8%84%91/
