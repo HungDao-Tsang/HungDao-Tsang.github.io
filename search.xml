@@ -58,31 +58,6 @@
     
     
     <entry>
-      <title>Mitsubishi CNC</title>
-      <link href="/posts/mitsubishi-cnc/"/>
-      <url>/posts/mitsubishi-cnc/</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="三菱系统加工调整"><a href="#三菱系统加工调整" class="headerlink" title="三菱系统加工调整"></a>三菱系统加工调整</h1><h2 id="容差控制时调整"><a href="#容差控制时调整" class="headerlink" title="容差控制时调整"></a>容差控制时调整</h2><table><thead><tr><th>参数号</th><th>说明</th><th>加工时间缩短</th><th>光洁度提升&#x2F;刀痕消除</th><th>尺寸&#x2F;圆弧&#x2F;圆角精度提升</th><th>机械振动抑制&#x2F;波纹</th></tr></thead><tbody><tr><td>1206</td><td>加速度</td><td>②UP</td><td>—</td><td>④Down</td><td>③Down</td></tr><tr><td>1207</td><td>加速度</td><td>②UP</td><td>—</td><td>④Down</td><td>③Down</td></tr><tr><td>1568</td><td>S型滤波器1</td><td>③Down</td><td>—</td><td>—</td><td>UP</td></tr><tr><td>12070</td><td>S型滤波器2</td><td>—</td><td>②UP</td><td>①Down</td><td>①UP</td></tr><tr><td>2659</td><td>容差量</td><td>①UP</td><td>①UP</td><td>②Down</td><td>②Down</td></tr><tr><td>2203</td><td>位置环增益</td><td>④UP</td><td>③Down</td><td>③UP</td><td>④Down</td></tr><tr><td>2010</td><td>前馈滤波器</td><td>⑤UP</td><td>—</td><td>⑤UP</td><td>⑤Down</td></tr></tbody></table><ul><li>调整顺序根据圆形编号</li><li>关于容差量<ul><li>容差量[大] → 速度[快] → 光洁度[高] → 尺寸精度[低]</li><li>容差量[小] → 速度[慢] → 光洁度[低] → 尺寸精度[高]</li></ul></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> CNC </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Mitsubishi CNC </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Hexo next 博客优化</title>
       <link href="/posts/hexo-next2/"/>
       <url>/posts/hexo-next2/</url>
@@ -101,9 +76,9 @@
             
             <tag> 博客 </tag>
             
-            <tag> Next </tag>
-            
             <tag> Hexo </tag>
+            
+            <tag> Next </tag>
             
         </tags>
       
@@ -155,9 +130,9 @@
             
             <tag> 博客 </tag>
             
-            <tag> Next </tag>
-            
             <tag> Hexo </tag>
+            
+            <tag> Next </tag>
             
         </tags>
       
